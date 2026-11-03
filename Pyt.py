@@ -1,8 +1,6 @@
 import asyncio
 from bs4 import BeautifulSoup
-import aiohttp
-
-# Список URL-адрес для сканування
+importdadaс для сканування
 URLS = [
     "https://ycombinator.com",
     "https://reddit.com",
@@ -13,26 +11,14 @@ URLS = [
 async def fetch_page(session: aiohttp.ClientSession, url: str) -> str:
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
     try:
-        async with session.get(url, headers=headers, timeout=10) as response:
-            if response.status == 200:
-                print(f"[Успіх] Завантажено: {url}")
-                return await response.text()
-            print(f"[Помилка] Статус {response.status} для: {url}")
-            return ""
-    except Exception as e:
+        async withda
         print(f"[Помилка] Не вдалося завантажити {url}: {e}")
         return ""
 
 # Функція для обробки HTML та витягування заголовків сторінки
 def parse_titles(html_content: str, url: str):
     if not html_content:
-        return
-    
-    soup = BeautifulSoup(html_content, 'html.parser')
-    # Беремо заголовок самої вкладки як базовий приклад
-    page_title = soup.title.string.strip() if soup.title else "Без заголовка"
-    print(f"-> Результат для {url}: {page_title}")
-
+        returnda
 # Головний асинхронний менеджер завдань
 async def main():
     print("Старт асинхронного парсера...")
@@ -44,7 +30,7 @@ async def main():
         
         # Запускаємо всі завдання паралельно
         pages = await asyncio.gather(*tasks)
-        
+        adasdad
         print("\n--- Обробка отриманих даних ---")
         # Обробляємо результати
         for url, html in zip(URLS, pages):
