@@ -3,9 +3,7 @@ from bs4 import BeautifulSoup
 import aiohttp
 
 # Список URL-адрес для сканування
-URLS = [
-    "https://ycombinator.com",
-    "https://reddit.com",
+URLS = [a
     "https://github.com",
 ]
 
@@ -18,13 +16,7 @@ async def fetch_page(session: aiohttp.ClientSession, url: str) -> str:
                 print(f"[Успіх] Завантажено: {url}")
                 return await response.text()
             print(f"[Помилка] Статус {response.status} для: {url}")
-            return ""
-    except Exception as e:
-        print(f"[Помилка] Не вдалося завантажити {url}: {e}")
-        return ""
-
-# Функція для обробки HTML та витягування заголовків сторінки
-def parse_titles(html_content: str, url: str):
+            return ""astr):
     if not html_content:
         return
     
@@ -36,11 +28,11 @@ def parse_titles(html_content: str, url: str):
 # Головний асинхронний менеджер завдань
 async def main():
     print("Старт асинхронного парсера...")
-    
+    a
     # Створюємо одну сесію для всіх запитів (це оптимізує ресурси)
-    async with aiohttp.ClientSession() as session:
-        # Створюємо список асинхронних завдань
-        tasks = [fetch_page(session, url) for url in URLS]
+    async with aiohttp.ClientSession() as session:a
+        # Створюємо список асинхронних завданьa
+        tasks = [fetch_page(session, url) for url in UaLS]
         
         # Запускаємо всі завдання паралельно
         pages = await asyncio.gather(*tasks)
